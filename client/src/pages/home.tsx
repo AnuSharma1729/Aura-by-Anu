@@ -138,7 +138,6 @@ export default function Home() {
                   <ul className="space-y-4 text-sm text-gray-300">
                      <li><a href="#" className="hover:text-white transition-colors">iOS App</a></li>
                      <li><a href="#" className="hover:text-white transition-colors">Android App</a></li>
-                     <li><a href="#" className="hover:text-white transition-colors">Web Dashboard</a></li>
                   </ul>
                </div>
                <div>
@@ -155,17 +154,14 @@ export default function Home() {
                      <div className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer">
                         <span className="text-xs font-bold">IG</span>
                      </div>
-                     <div className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer">
-                        <span className="text-xs font-bold">TW</span>
-                     </div>
-                     <div className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer">
-                        <span className="text-xs font-bold">LN</span>
-                     </div>
                   </div>
                </div>
             </div>
             <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-gray-600 font-mono uppercase tracking-wider">
-               <p>© 2025 Aura Intelligence Inc.</p>
+               <div className="flex flex-col gap-1">
+                  <p>© 2025 Aura Intelligence Inc.</p>
+                  <p className="text-[10px] opacity-60">Built by Anu Sharma</p>
+               </div>
                <div className="flex gap-8 mt-4 md:mt-0">
                   <a href="#" className="hover:text-gray-400 transition-colors">Privacy</a>
                   <a href="#" className="hover:text-gray-400 transition-colors">Terms</a>
