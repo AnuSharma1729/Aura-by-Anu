@@ -8,6 +8,7 @@ import runwayVideo from "@assets/generated_videos/cinematic_futuristic_fashion_r
 import wardrobeImage from "@assets/generated_images/holographic_digital_wardrobe_scanning_interface.png";
 import outfitImage from "@assets/generated_images/ai_curated_outfit_display.png";
 import chatImage from "@assets/generated_images/minimalist_ai_chat_interface_visualization.png";
+import auraLogo from "../assets/aura-logo.png";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 
@@ -67,6 +68,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex justify-between h-24 items-center">
             <div className="flex items-center gap-3">
+              <img src={auraLogo} alt="AURA" className="h-12 w-12 object-contain" />
               <span className="text-2xl font-bold tracking-[0.2em] text-white font-serif">AURA</span>
             </div>
             <div className="hidden md:flex items-center gap-10">
@@ -250,7 +252,10 @@ export default function Home() {
          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                <div>
-                  <span className="text-2xl font-bold tracking-[0.2em] font-serif block mb-6">AURA</span>
+                  <div className="flex items-center gap-3 mb-6">
+                     <img src={auraLogo} alt="AURA" className="h-12 w-12 object-contain" />
+                     <span className="text-2xl font-bold tracking-[0.2em] font-serif">AURA</span>
+                  </div>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
                      Redefining personal style through the lens of artificial intelligence.
                   </p>
