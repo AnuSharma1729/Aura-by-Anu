@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Zap, ArrowLeft, Save, Download, Plus, Trash2, Briefcase, GraduationCap, User, FileText, Target } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 // --- Zod Schemas ---
 const personalInfoSchema = z.object({
@@ -91,7 +92,7 @@ export default function Builder() {
   return (
     <div className="h-screen flex flex-col bg-background font-sans overflow-hidden">
       {/* Builder Header */}
-      <header className="h-14 border-b flex items-center justify-between px-4 sm:px-6 bg-white z-20 shrink-0">
+      <header className="h-14 border-b flex items-center justify-between px-4 sm:px-6 bg-background z-20 shrink-0">
         <div className="flex items-center gap-4">
           <Link href="/">
             <Button variant="ghost" size="sm" className="gap-2">
@@ -105,6 +106,7 @@ export default function Builder() {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          <ModeToggle />
           <Button variant="outline" size="sm" className="gap-2">
             <Save className="h-4 w-4" /> <span className="hidden sm:inline">Save</span>
           </Button>
@@ -116,8 +118,8 @@ export default function Builder() {
 
       <div className="flex-1 flex overflow-hidden">
         {/* Left Panel: Form Inputs */}
-        <div className="w-full lg:w-1/2 flex flex-col border-r bg-slate-50/50">
-          <div className="px-6 py-4 border-b bg-white">
+        <div className="w-full lg:w-1/2 flex flex-col border-r bg-muted/30">
+          <div className="px-6 py-4 border-b bg-background">
             <Tabs value={activeStep} onValueChange={setActiveStep} className="w-full">
               <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="personal"><User className="h-4 w-4 mr-2 hidden sm:inline" />Info</TabsTrigger>
@@ -301,16 +303,16 @@ export default function Builder() {
                     <p className="text-muted-foreground">Paste the Job Description to optimize your resume.</p>
                   </div>
                   
-                  <Card className="bg-indigo-50/50 border-indigo-100">
+                  <Card className="bg-primary/5 border-primary/20">
                     <CardContent className="pt-6">
                       <div className="space-y-4">
                          <div className="flex items-start gap-4">
-                            <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
-                              <Target className="h-5 w-5 text-indigo-600" />
+                            <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                              <Target className="h-5 w-5 text-primary" />
                             </div>
                             <div>
-                              <h3 className="font-semibold text-indigo-900">Optimization Score: 85/100</h3>
-                              <p className="text-sm text-indigo-700 mt-1">Your resume is a strong match! Adding keywords like "Agile" and "TypeScript" could boost your score.</p>
+                              <h3 className="font-semibold text-foreground">Optimization Score: 85/100</h3>
+                              <p className="text-sm text-muted-foreground mt-1">Your resume is a strong match! Adding keywords like "Agile" and "TypeScript" could boost your score.</p>
                             </div>
                          </div>
                       </div>

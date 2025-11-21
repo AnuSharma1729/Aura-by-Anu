@@ -3,13 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, FileText, Zap, Target, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { ModeToggle } from "@/components/mode-toggle";
 import heroImage from "@assets/generated_images/minimalist_abstract_representation_of_a_resume_being_optimized.png";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       {/* Navigation */}
-      <nav className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50">
+      <nav className="border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
@@ -17,6 +18,7 @@ export default function Home() {
               <span className="text-xl font-bold text-foreground tracking-tight">ResuMatch</span>
             </div>
             <div className="flex items-center gap-4">
+              <ModeToggle />
               <Link href="/login">
                 <Button variant="ghost" className="text-sm font-medium">Log in</Button>
               </Link>
@@ -84,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-muted/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Why Use ResuMatch?</h2>
@@ -113,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Simple, Transparent Pricing</h2>
@@ -170,38 +172,38 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-200 py-12 border-t border-slate-800">
+      <footer className="bg-card text-card-foreground py-12 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
               <Zap className="h-6 w-6 text-primary mr-2" />
-              <span className="text-xl font-bold text-white tracking-tight">ResuMatch</span>
+              <span className="text-xl font-bold tracking-tight">ResuMatch</span>
             </div>
-            <p className="text-slate-400 text-sm">
+            <p className="text-muted-foreground text-sm">
               Helping professionals land their dream jobs with technology-driven resume optimization.
             </p>
           </div>
           <div>
-            <h4 className="font-bold text-white mb-4">Product</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-primary">Features</a></li>
-              <li><a href="#" className="hover:text-primary">Pricing</a></li>
-              <li><a href="#" className="hover:text-primary">Templates</a></li>
+            <h4 className="font-bold mb-4">Product</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">Features</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Pricing</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Templates</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-white mb-4">Resources</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-primary">Blog</a></li>
-              <li><a href="#" className="hover:text-primary">ATS Guide</a></li>
-              <li><a href="#" className="hover:text-primary">Resume Examples</a></li>
+            <h4 className="font-bold mb-4">Resources</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">ATS Guide</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Resume Examples</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-white mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-primary">Privacy</a></li>
-              <li><a href="#" className="hover:text-primary">Terms</a></li>
+            <h4 className="font-bold mb-4">Legal</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="#" className="hover:text-primary transition-colors">Privacy</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Terms</a></li>
             </ul>
           </div>
         </div>
