@@ -1,14 +1,35 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Scan, Shirt, ArrowRight, Zap, Upload, MessageSquare, Layers } from "lucide-react";
+import { Sparkles, Scan, Shirt, ArrowRight, Zap, Upload, MessageSquare, Layers, CheckCircle, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
 import runwayVideo from "@assets/generated_videos/cinematic_futuristic_fashion_runway_show_with_models_walking.mp4";
 import wardrobeImage from "@assets/generated_images/holographic_digital_wardrobe_scanning_interface.png";
 import outfitImage from "@assets/generated_images/ai_curated_outfit_display.png";
 import chatImage from "@assets/generated_images/minimalist_ai_chat_interface_visualization.png";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/hooks/use-toast";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleJoinWaitlist = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    // Simulate API call
+    setTimeout(() => {
+      setSubmitted(true);
+      toast({
+        title: "Access Requested",
+        description: "You've been added to the priority waitlist.",
+      });
+      setEmail("");
+    }, 800);
+  };
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-white selection:text-black overflow-x-hidden">
       
@@ -22,17 +43,14 @@ export default function Home() {
             <div className="hidden md:flex items-center gap-10">
               <a href="#features" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Features</a>
               <a href="#how-it-works" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Process</a>
-              <a href="#pricing" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Membership</a>
+              <a href="#waitlist" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Membership</a>
             </div>
             <div className="flex items-center gap-6">
-              <Link href="/app">
-                <Button variant="ghost" className="text-xs font-medium hidden sm:flex hover:bg-white/5 hover:text-white text-gray-400 tracking-widest uppercase">Login</Button>
-              </Link>
-              <Link href="/app">
+              <a href="#waitlist">
                 <Button className="bg-white hover:bg-gray-200 text-black border-none rounded-none px-8 h-10 text-xs tracking-widest font-bold uppercase transition-all hover:scale-105">
-                  Get Access
+                  Get Early Access
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -69,11 +87,19 @@ export default function Home() {
               Curate outfits, analyze your wardrobe, and receive real-time styling advice powered by cutting-edge artificial intelligence.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link href="/app">
+              <a href="#waitlist">
                 <Button size="lg" className="h-16 px-12 bg-white text-black hover:bg-gray-200 rounded-none text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-                  Start Styling Me
+                  Join Waitlist
                 </Button>
-              </Link>
+              </a>
+              <div className="flex gap-4">
+                 <Button variant="outline" size="lg" className="h-16 px-8 border-white/20 bg-black/40 text-white hover:bg-white hover:text-black rounded-none text-sm font-bold tracking-[0.1em] uppercase backdrop-blur-md transition-all">
+                    <Smartphone className="mr-2 h-4 w-4" /> iOS
+                 </Button>
+                 <Button variant="outline" size="lg" className="h-16 px-8 border-white/20 bg-black/40 text-white hover:bg-white hover:text-black rounded-none text-sm font-bold tracking-[0.1em] uppercase backdrop-blur-md transition-all">
+                    <Smartphone className="mr-2 h-4 w-4" /> Android
+                 </Button>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -127,6 +153,67 @@ export default function Home() {
               </div>
            ))}
         </div>
+      </section>
+
+      {/* Waitlist / Download Section */}
+      <section id="waitlist" className="py-32 relative overflow-hidden">
+         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-background" />
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tighter">
+               JOIN THE <br/> REVOLUTION
+            </h2>
+            <p className="text-xl text-muted-foreground mb-12 max-w-xl mx-auto">
+               Aura is currently in private beta. Sign up for the waitlist to get early access when we launch in your region.
+            </p>
+            
+            {!submitted ? (
+              <form onSubmit={handleJoinWaitlist} className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto w-full">
+                 <div className="relative w-full">
+                    <Input 
+                       type="email" 
+                       placeholder="ENTER YOUR EMAIL" 
+                       value={email}
+                       onChange={(e) => setEmail(e.target.value)}
+                       required
+                       className="w-full h-14 bg-white/5 border-white/10 rounded-none px-6 text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-white font-mono text-sm text-center sm:text-left"
+                    />
+                 </div>
+                 <Button type="submit" size="lg" className="h-14 px-10 bg-white text-black hover:bg-gray-200 hover:text-black transition-colors rounded-none font-bold tracking-widest w-full sm:w-auto">
+                    REQUEST ACCESS
+                 </Button>
+              </form>
+            ) : (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center gap-4 p-8 bg-white/5 border border-white/10 max-w-md mx-auto"
+              >
+                <CheckCircle className="h-12 w-12 text-white" />
+                <h3 className="text-2xl font-serif font-bold text-white">YOU'RE ON THE LIST</h3>
+                <p className="text-gray-400 text-sm">We'll notify you as soon as your spot opens up.</p>
+              </motion.div>
+            )}
+
+            <div className="mt-20 pt-12 border-t border-white/10">
+               <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-8">Coming Soon To</p>
+               <div className="flex justify-center gap-6">
+                  <Button variant="outline" className="h-14 w-44 border-white/10 bg-transparent hover:bg-white hover:text-black rounded-none gap-3 transition-all group">
+                     <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.45-1.64 4.65-1.64 2.03.01 3.14.83 3.63 1.54-3.27 1.66-2.48 6.08.84 7.56-.61 1.75-1.45 3.4-2.2 4.77zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.54 4.33-3.74 4.25z"/></svg>
+                     <div className="flex flex-col items-start">
+                        <span className="text-[8px] uppercase tracking-wider">Download on the</span>
+                        <span className="text-xs font-bold tracking-wide">App Store</span>
+                     </div>
+                  </Button>
+                  <Button variant="outline" className="h-14 w-44 border-white/10 bg-transparent hover:bg-white hover:text-black rounded-none gap-3 transition-all group">
+                     <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.186.185-.436.185-.621 0l-2.67-2.67c-.186-.187-.186-.436 0-.622L10.787 8.425 3.61 1.252c.185-.186.435-.186.621 0l-2.67 2.67c-.186.187-.186.437 0 .623L.32 11.94 3.61 1.814zM15.34 13.548l2.925 2.925c.31.31.31.814 0 1.125l-3.3 3.3c-.311.31-.814.31-1.125 0l-2.925-2.925 4.425-4.425zM15.34 10.452l-4.425-4.425 2.925-2.925c.311-.31.814-.31 1.125 0l3.3 3.3c.31.31.31.814 0 1.125L15.34 10.452z"/></svg>
+                     <div className="flex flex-col items-start">
+                        <span className="text-[8px] uppercase tracking-wider">Get it on</span>
+                        <span className="text-xs font-bold tracking-wide">Google Play</span>
+                     </div>
+                  </Button>
+               </div>
+            </div>
+         </div>
       </section>
 
       {/* Footer */}
