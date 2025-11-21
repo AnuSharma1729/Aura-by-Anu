@@ -25,10 +25,14 @@ export default function Home() {
               <a href="#pricing" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Membership</a>
             </div>
             <div className="flex items-center gap-6">
-              <Button variant="ghost" className="text-xs font-medium hidden sm:flex hover:bg-white/5 hover:text-white text-gray-400 tracking-widest uppercase">Login</Button>
-              <Button className="bg-white hover:bg-gray-200 text-black border-none rounded-none px-8 h-10 text-xs tracking-widest font-bold uppercase transition-all hover:scale-105">
-                Get Access
-              </Button>
+              <Link href="/app">
+                <Button variant="ghost" className="text-xs font-medium hidden sm:flex hover:bg-white/5 hover:text-white text-gray-400 tracking-widest uppercase">Login</Button>
+              </Link>
+              <Link href="/app">
+                <Button className="bg-white hover:bg-gray-200 text-black border-none rounded-none px-8 h-10 text-xs tracking-widest font-bold uppercase transition-all hover:scale-105">
+                  Get Access
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -65,9 +69,11 @@ export default function Home() {
               Curate outfits, analyze your wardrobe, and receive real-time styling advice powered by cutting-edge artificial intelligence.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Button size="lg" className="h-16 px-12 bg-white text-black hover:bg-gray-200 rounded-none text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-                Start Styling Me
-              </Button>
+              <Link href="/app">
+                <Button size="lg" className="h-16 px-12 bg-white text-black hover:bg-gray-200 rounded-none text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                  Start Styling Me
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
