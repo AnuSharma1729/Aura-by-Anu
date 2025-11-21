@@ -1,39 +1,33 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Scan, Shirt, ArrowRight, Zap } from "lucide-react";
+import { Sparkles, Scan, Shirt, ArrowRight, Zap, Upload, MessageSquare, Layers } from "lucide-react";
 import { motion } from "framer-motion";
-import heroImage from "@assets/generated_images/futuristic_fashion_model_with_holographic_ui_elements.png";
-import wardrobeImage from "@assets/generated_images/holographic_digital_wardrobe_interface.png";
-import aiImage from "@assets/generated_images/ai_analyzing_fashion_style_data.png";
+import runwayVideo from "@assets/generated_videos/cinematic_futuristic_fashion_runway_show_with_models_walking.mp4";
+import wardrobeImage from "@assets/generated_images/holographic_digital_wardrobe_scanning_interface.png";
+import outfitImage from "@assets/generated_images/ai_curated_outfit_display.png";
+import chatImage from "@assets/generated_images/minimalist_ai_chat_interface_visualization.png";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
-      {/* Futuristic Grid Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
-      </div>
-
+    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-white selection:text-black overflow-x-hidden">
+      
       {/* Navigation */}
-      <nav className="fixed w-full z-50 top-0 transition-all duration-300 bg-background/10 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center gap-2">
-              <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center shadow-[0_0_15px_theme('colors.primary.DEFAULT')]">
-                <Sparkles className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-2xl font-bold tracking-widest text-white font-serif">AURA</span>
+      <nav className="fixed w-full z-50 top-0 transition-all duration-500 bg-black/50 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex justify-between h-24 items-center">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl font-bold tracking-[0.2em] text-white font-serif">AURA</span>
             </div>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Features</a>
-              <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Process</a>
-              <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider">Membership</a>
+            <div className="hidden md:flex items-center gap-10">
+              <a href="#features" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Features</a>
+              <a href="#how-it-works" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Process</a>
+              <a href="#pricing" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Membership</a>
             </div>
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" className="text-sm font-medium hidden sm:flex hover:bg-white/5 hover:text-primary">LOGIN</Button>
-              <Button className="bg-primary hover:bg-primary/80 text-white shadow-[0_0_20px_theme('colors.primary.DEFAULT')] border-none rounded-full px-6">
-                GET STYLED
+            <div className="flex items-center gap-6">
+              <Button variant="ghost" className="text-xs font-medium hidden sm:flex hover:bg-white/5 hover:text-white text-gray-400 tracking-widest uppercase">Login</Button>
+              <Button className="bg-white hover:bg-gray-200 text-black border-none rounded-none px-8 h-10 text-xs tracking-widest font-bold uppercase transition-all hover:scale-105">
+                Get Access
               </Button>
             </div>
           </div>
@@ -41,199 +35,186 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -z-10 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] -z-10" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6">
-                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span className="text-xs font-medium tracking-widest text-secondary uppercase">AI Stylist V2.0 Live</span>
-              </div>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter text-white mb-6 leading-[0.9]">
-                STYLE <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">INTELLIGENCE</span> <br />
-                REDEFINED
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
-                Upload your photo. Let Aura scan your biometrics, analyze trends, and curate a hyper-personalized wardrobe that evolves with you.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="h-14 px-8 text-base bg-white text-black hover:bg-gray-200 rounded-none font-bold tracking-wider">
-                  START SCAN <Scan className="ml-2 h-4 w-4" />
-                </Button>
-                <Button size="lg" variant="outline" className="h-14 px-8 text-base border-white/20 text-white hover:bg-white/10 rounded-none tracking-wider backdrop-blur-sm">
-                  VIEW DEMO
-                </Button>
-              </div>
-              
-              <div className="mt-12 flex items-center gap-8 border-t border-white/10 pt-8">
-                <div>
-                  <h4 className="text-3xl font-bold text-white font-serif">98%</h4>
-                  <p className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Match Accuracy</p>
-                </div>
-                <div>
-                  <h4 className="text-3xl font-bold text-white font-serif">50k+</h4>
-                  <p className="text-xs text-muted-foreground uppercase tracking-widest mt-1">Users Styled</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="relative h-[600px] flex items-center justify-center"
-            >
-              <div className="absolute inset-0 border border-white/10 rounded-full animate-[spin_10s_linear_infinite]" />
-              <div className="absolute inset-4 border border-primary/30 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-              
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-[0_0_50px_theme('colors.primary.DEFAULT')] border border-white/10">
-                 <div className="absolute top-4 right-4 z-20 flex gap-2">
-                    <div className="bg-black/50 backdrop-blur-md px-3 py-1 rounded text-xs font-mono text-secondary border border-secondary/30">
-                       SCANNING...
-                    </div>
-                 </div>
-                 <img 
-                  src={heroImage} 
-                  alt="AI Stylist Hero" 
-                  className="max-h-[600px] w-auto object-cover"
-                />
-                
-                {/* Floating UI Cards */}
-                <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                  className="absolute bottom-8 left-8 bg-black/60 backdrop-blur-xl p-4 rounded-lg border border-white/10 w-64"
-                >
-                   <div className="flex justify-between items-center mb-2">
-                      <span className="text-xs text-gray-400 uppercase">Outfit Match</span>
-                      <span className="text-xs text-primary font-bold">99.8%</span>
-                   </div>
-                   <div className="h-1 w-full bg-gray-800 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-primary to-secondary w-[99.8%]" />
-                   </div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-60"
+          >
+            <source src={runwayVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/90" />
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
         </div>
-        
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-6 tracking-tight font-serif leading-none mix-blend-overlay opacity-90">
+              YOUR AI POWERED <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">PERSONAL STYLIST</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+              Curate outfits, analyze your wardrobe, and receive real-time styling advice powered by cutting-edge artificial intelligence.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Button size="lg" className="h-16 px-12 bg-white text-black hover:bg-gray-200 rounded-none text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                Start Styling Me
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-           <div className="w-6 h-10 rounded-full border border-white/20 flex justify-center pt-2">
-              <div className="w-1 h-2 bg-white rounded-full" />
-           </div>
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+           <span className="text-[10px] uppercase tracking-[0.3em] text-white">Scroll</span>
+           <div className="h-16 w-[1px] bg-gradient-to-b from-white to-transparent" />
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-32 relative bg-black/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">SYSTEM <span className="text-primary">CAPABILITIES</span></h2>
-            <div className="w-24 h-1 bg-secondary" />
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-             <GlassCard 
-                title="Biometric Scanning"
-                description="Our AI analyzes your skin tone, body shape, and facial features to suggest colors and cuts that scientifically enhance your appearance."
-                icon={<Scan className="h-8 w-8 text-secondary" />}
-                image={aiImage}
-             />
-             <GlassCard 
-                title="Virtual Wardrobe"
-                description="Digitize your existing closet. Aura mixes and matches what you own with new pieces to create unlimited outfit combinations."
-                icon={<Shirt className="h-8 w-8 text-secondary" />}
+      <section id="features" className="py-32 relative bg-black overflow-hidden">
+        {/* Background Glows */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[150px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+             <GlassFeatureCard 
+                title="Smart Wardrobe Upload"
+                description="Digitize your closet instantly. Our computer vision identifies cuts, fabrics, and brands."
                 image={wardrobeImage}
+                icon={<Upload className="h-5 w-5" />}
              />
-             <GlassCard 
-                title="Trend Forecasting"
-                description="Stay ahead of the curve. Aura predicts micro-trends relevant to your personal style profile before they hit the mainstream."
-                icon={<Zap className="h-8 w-8 text-secondary" />}
+             <GlassFeatureCard 
+                title="Daily Outfit Picks"
+                description="Wake up to curated looks based on your schedule, weather, and current fashion trends."
+                image={outfitImage}
+                icon={<Layers className="h-5 w-5" />}
                 delay={0.2}
+             />
+             <GlassFeatureCard 
+                title="AI Chat Stylist"
+                description="24/7 fashion advice. Ask specific styling questions or get feedback on outfit choices."
+                image={chatImage}
+                icon={<MessageSquare className="h-5 w-5" />}
+                delay={0.4}
              />
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden">
-         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-background" />
-         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h2 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter">
-               FUTURE PROOF <br/> YOUR LOOK
-            </h2>
-            <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-               Join the beta program and be among the first to experience the next generation of personal styling.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <div className="relative w-full sm:w-96">
-                  <input 
-                     type="email" 
-                     placeholder="ENTER EMAIL ACCESS CODE" 
-                     className="w-full h-14 bg-white/5 border border-white/10 rounded-none px-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-primary transition-colors font-mono text-sm"
-                  />
-               </div>
-               <Button size="lg" className="h-14 px-10 bg-white text-black hover:bg-secondary hover:text-black transition-colors rounded-none font-bold tracking-widest w-full sm:w-auto">
-                  REQUEST ACCESS
-               </Button>
-            </div>
-         </div>
+      {/* Marquee Section */}
+      <section className="py-12 border-y border-white/10 bg-black overflow-hidden whitespace-nowrap">
+        <div className="inline-flex animate-[scroll_20s_linear_infinite] items-center">
+           {[...Array(10)].map((_, i) => (
+              <div key={i} className="flex items-center mx-8 opacity-40 hover:opacity-100 transition-opacity duration-500">
+                 <span className="text-4xl font-serif font-bold text-transparent stroke-text tracking-widest mr-4">FUTURE FASHION</span>
+                 <div className="h-2 w-2 bg-white rotate-45" />
+              </div>
+           ))}
+        </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 bg-black">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
-               <Sparkles className="h-5 w-5 text-primary" />
-               <span className="text-xl font-bold tracking-widest text-white font-serif">AURA</span>
+      <footer className="py-20 bg-black text-white border-t border-white/10">
+         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+               <div>
+                  <span className="text-2xl font-bold tracking-[0.2em] font-serif block mb-6">AURA</span>
+                  <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+                     Redefining personal style through the lens of artificial intelligence.
+                  </p>
+               </div>
+               <div>
+                  <h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-gray-400">Platform</h4>
+                  <ul className="space-y-4 text-sm text-gray-300">
+                     <li><a href="#" className="hover:text-white transition-colors">iOS App</a></li>
+                     <li><a href="#" className="hover:text-white transition-colors">Android App</a></li>
+                     <li><a href="#" className="hover:text-white transition-colors">Web Dashboard</a></li>
+                  </ul>
+               </div>
+               <div>
+                  <h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-gray-400">Company</h4>
+                  <ul className="space-y-4 text-sm text-gray-300">
+                     <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                     <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                     <li><a href="#" className="hover:text-white transition-colors">Press</a></li>
+                  </ul>
+               </div>
+               <div>
+                  <h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-gray-400">Connect</h4>
+                  <div className="flex gap-4">
+                     <div className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer">
+                        <span className="text-xs font-bold">IG</span>
+                     </div>
+                     <div className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer">
+                        <span className="text-xs font-bold">TW</span>
+                     </div>
+                     <div className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer">
+                        <span className="text-xs font-bold">LN</span>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div className="flex gap-8 text-xs font-mono text-gray-500">
-               <a href="#" className="hover:text-white transition-colors">TERMS_OF_SERVICE</a>
-               <a href="#" className="hover:text-white transition-colors">PRIVACY_PROTOCOL</a>
-               <a href="#" className="hover:text-white transition-colors">SYSTEM_STATUS</a>
-            </div>
-            <div className="text-xs text-gray-600 font-mono">
-               © 2025 AURA SYSTEMS. ALL RIGHTS RESERVED.
+            <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-gray-600 font-mono uppercase tracking-wider">
+               <p>© 2025 Aura Intelligence Inc.</p>
+               <div className="flex gap-8 mt-4 md:mt-0">
+                  <a href="#" className="hover:text-gray-400 transition-colors">Privacy</a>
+                  <a href="#" className="hover:text-gray-400 transition-colors">Terms</a>
+               </div>
             </div>
          </div>
       </footer>
+      
+      <style>{`
+         .stroke-text {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+         }
+         @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+         }
+      `}</style>
     </div>
   );
 }
 
-function GlassCard({ title, description, icon, image, delay = 0 }: any) {
+function GlassFeatureCard({ title, description, image, icon, delay = 0 }: any) {
    return (
       <motion.div 
-         initial={{ opacity: 0, y: 20 }}
+         initial={{ opacity: 0, y: 40 }}
          whileInView={{ opacity: 1, y: 0 }}
-         viewport={{ once: true }}
-         transition={{ delay, duration: 0.6 }}
-         className="group relative overflow-hidden bg-white/5 border border-white/5 hover:border-primary/50 transition-all duration-500"
+         viewport={{ once: true, margin: "-100px" }}
+         transition={{ delay, duration: 0.8, ease: "easeOut" }}
+         className="group relative h-[500px] w-full overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.05] transition-all duration-500 cursor-pointer"
       >
-         {image && (
-            <div className="h-48 overflow-hidden relative">
-               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
-               <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-            </div>
-         )}
-         <div className="p-8 relative z-20">
-            <div className="mb-6 p-3 bg-white/5 w-fit rounded-lg border border-white/10 group-hover:bg-secondary/20 group-hover:border-secondary/50 transition-colors">
+         <div className="absolute inset-0 z-0">
+            <img 
+               src={image} 
+               alt={title} 
+               className="h-full w-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+         </div>
+         
+         <div className="absolute bottom-0 left-0 w-full p-8 z-10">
+            <div className="h-12 w-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center mb-6 border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-500">
                {icon}
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4 font-serif">{title}</h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <h3 className="text-2xl font-serif font-bold text-white mb-3 tracking-wide">{title}</h3>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs group-hover:text-white transition-colors duration-300">
                {description}
             </p>
+            
+            <div className="mt-6 h-[1px] w-0 group-hover:w-full bg-white transition-all duration-700 ease-in-out" />
          </div>
       </motion.div>
    )
