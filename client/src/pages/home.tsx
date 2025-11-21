@@ -14,20 +14,49 @@ import { toast } from "@/hooks/use-toast";
 export default function Home() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleJoinWaitlist = (e: React.FormEvent) => {
+  const handleJoinWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || loading) return;
     
-    // Simulate API call
-    setTimeout(() => {
+    setLoading(true);
+    
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast({
+          title: "Error",
+          description: data.error || "Failed to join waitlist",
+          variant: "destructive",
+        });
+        return;
+      }
+
       setSubmitted(true);
       toast({
         title: "Access Requested",
         description: "You've been added to the priority waitlist.",
       });
       setEmail("");
-    }, 800);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -178,8 +207,8 @@ export default function Home() {
                        className="w-full h-14 bg-white/5 border-white/10 rounded-none px-6 text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-white font-mono text-sm text-center sm:text-left"
                     />
                  </div>
-                 <Button type="submit" size="lg" className="h-14 px-10 bg-white text-black hover:bg-gray-200 hover:text-black transition-colors rounded-none font-bold tracking-widest w-full sm:w-auto">
-                    REQUEST ACCESS
+                 <Button type="submit" size="lg" disabled={loading} className="h-14 px-10 bg-white text-black hover:bg-gray-200 hover:text-black transition-colors rounded-none font-bold tracking-widest w-full sm:w-auto disabled:opacity-50">
+                    {loading ? "SUBMITTING..." : "REQUEST ACCESS"}
                  </Button>
               </form>
             ) : (
