@@ -9,6 +9,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const result = insertWaitlistSchema.safeParse(req.body);
       
       if (!result.success) {
+        console.error("Validation failed:", result.error);
         return res.status(400).json({ error: "Invalid email format" });
       }
 
@@ -19,7 +20,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(409).json({ error: "Email already registered" });
       }
       console.error("Error adding to waitlist:", error);
-      return res.status(500).json({ error: "Failed to join waitlist" });
+      console.error("Error details:", {
+        message: error.message,
+        code: error.code,
+        stack: error.stack
+      });
+      return res.status(500).json({ 
+        error: "Failed to join waitlist",
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      });
     }
   });
 
