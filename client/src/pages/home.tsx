@@ -68,8 +68,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex justify-between h-24 items-center">
             <div className="flex items-center gap-3">
-              <img src={auraLogo} alt="AURA" className="h-12 w-12 object-contain" />
-              <span className="text-2xl font-bold tracking-[0.2em] text-white font-serif">AURA</span>
+              <img src={auraLogo} alt="Aura" className="h-12 w-12 object-contain" />
+              <span className="text-2xl font-bold tracking-[0.2em] gold-glitter font-serif">Aura</span>
             </div>
             <div className="hidden md:flex items-center gap-10">
               <a href="#features" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Features</a>
@@ -88,7 +88,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-24">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video 
@@ -109,10 +109,13 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-6 tracking-tight font-serif leading-none mix-blend-overlay opacity-90">
-              YOUR AI POWERED <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">PERSONAL STYLIST</span>
+            <div className="mb-4">
+              <p className="text-sm md:text-base text-gray-400 font-light tracking-[0.3em] uppercase mb-2">By Anu</p>
+            </div>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight font-serif leading-none">
+              <span className="gold-glitter">Aura</span>
             </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-4 font-light tracking-wide">Your AI-Powered Personal Stylist</p>
             <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
               Curate outfits, analyze your wardrobe, and receive real-time styling advice powered by cutting-edge artificial intelligence.
             </p>
@@ -252,8 +255,8 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                <div>
                   <div className="flex items-center gap-3 mb-6">
-                     <img src={auraLogo} alt="AURA" className="h-12 w-12 object-contain" />
-                     <span className="text-2xl font-bold tracking-[0.2em] font-serif">AURA</span>
+                     <img src={auraLogo} alt="Aura" className="h-12 w-12 object-contain" />
+                     <span className="text-2xl font-bold tracking-[0.2em] gold-glitter font-serif">Aura</span>
                   </div>
                   <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
                      Redefining personal style through the lens of artificial intelligence.
