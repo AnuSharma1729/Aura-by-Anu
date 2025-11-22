@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Scan, Shirt, ArrowRight, Zap, Upload, MessageSquare, Layers, CheckCircle, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
-import runwayVideo from "@assets/generated_videos/cinematic_futuristic_fashion_runway_show_with_models_walking.mp4";
+import heroVideo from "@assets/generated_videos/luxury_fashion_product_showcase.mp4";
 import wardrobeImage from "@assets/generated_images/holographic_digital_wardrobe_scanning_interface.png";
 import outfitImage from "@assets/generated_images/ai_curated_outfit_display.png";
 import chatImage from "@assets/generated_images/minimalist_ai_chat_interface_visualization.png";
@@ -96,12 +96,11 @@ export default function Home() {
             loop 
             muted 
             playsInline
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-50"
           >
-            <source src={runwayVideo} type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/90" />
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/90" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
