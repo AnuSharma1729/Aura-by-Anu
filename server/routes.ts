@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertWaitlistSchema } from "@shared/schema";
+import { sendWaitlistConfirmation } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/waitlist", async (req, res) => {
@@ -14,7 +15,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const entry = await storage.addToWaitlist(result.data);
-      return res.status(201).json({ success: true, data: entry });
+      
+      // Send confirmation email (non-blocking)
+      const emailSent = await sendWaitlistConfirmation(result.data.name, result.data.email);
+      
+      return res.status(201).json({ 
+        success: true, 
+        data: entry,
+        emailSent 
+      });
     } catch (error: any) {
       if (error.code === '23505') {
         return res.status(409).json({ error: "Email already registered" });

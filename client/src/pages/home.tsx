@@ -13,13 +13,14 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 
 export default function Home() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleJoinWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || loading) return;
+    if (!name || !email || loading) return;
     
     setLoading(true);
     
@@ -29,7 +30,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ name, email }),
       });
 
       const data = await response.json();
@@ -46,8 +47,11 @@ export default function Home() {
       setSubmitted(true);
       toast({
         title: "Access Requested",
-        description: "You've been added to the priority waitlist.",
+        description: data.emailSent 
+          ? "You've been added to the waitlist. Check your email for confirmation!" 
+          : "You've been added to the waitlist.",
       });
+      setName("");
       setEmail("");
     } catch (error) {
       toast({
@@ -198,18 +202,28 @@ export default function Home() {
             </p>
             
             {!submitted ? (
-              <form onSubmit={handleJoinWaitlist} className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto w-full">
-                 <div className="relative w-full">
+              <form onSubmit={handleJoinWaitlist} className="flex flex-col items-center justify-center gap-4 max-w-lg mx-auto w-full">
+                 <div className="flex flex-col sm:flex-row gap-4 w-full">
+                    <Input 
+                       type="text" 
+                       placeholder="YOUR NAME" 
+                       value={name}
+                       onChange={(e) => setName(e.target.value)}
+                       required
+                       data-testid="input-name"
+                       className="flex-1 h-14 bg-white/5 border-white/10 rounded-none px-6 text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-white font-mono text-sm text-center sm:text-left"
+                    />
                     <Input 
                        type="email" 
-                       placeholder="ENTER YOUR EMAIL" 
+                       placeholder="YOUR EMAIL" 
                        value={email}
                        onChange={(e) => setEmail(e.target.value)}
                        required
-                       className="w-full h-14 bg-white/5 border-white/10 rounded-none px-6 text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-white font-mono text-sm text-center sm:text-left"
+                       data-testid="input-email"
+                       className="flex-1 h-14 bg-white/5 border-white/10 rounded-none px-6 text-white placeholder:text-gray-600 focus-visible:ring-1 focus-visible:ring-white font-mono text-sm text-center sm:text-left"
                     />
                  </div>
-                 <Button type="submit" size="lg" disabled={loading} className="h-14 px-10 bg-white text-black hover:bg-gray-200 hover:text-black transition-colors rounded-none font-bold tracking-widest w-full sm:w-auto disabled:opacity-50">
+                 <Button type="submit" size="lg" disabled={loading} data-testid="button-submit" className="h-14 px-10 bg-white text-black hover:bg-gray-200 hover:text-black transition-colors rounded-none font-bold tracking-widest w-full sm:w-auto disabled:opacity-50">
                     {loading ? "SUBMITTING..." : "REQUEST ACCESS"}
                  </Button>
               </form>
