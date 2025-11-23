@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Scan, Shirt, ArrowRight, Zap, Upload, MessageSquare, Layers, CheckCircle, Smartphone } from "lucide-react";
+import { Sparkles, Scan, Shirt, ArrowRight, Zap, Upload, MessageSquare, Layers, CheckCircle, Smartphone, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import heroVideo from "@assets/generated_videos/luxury_fashion_product_showcase.mp4";
 import wardrobeImage from "@assets/generated_images/holographic_digital_wardrobe_scanning_interface.png";
@@ -291,9 +291,15 @@ export default function Home() {
                <div>
                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-gray-400">Connect</h4>
                   <div className="flex gap-4">
-                     <div className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer">
-                        <span className="text-xs font-bold">IG</span>
-                     </div>
+                     <a 
+                        href="https://instagram.com/aura_byanu" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        data-testid="link-instagram"
+                        className="h-10 w-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer"
+                     >
+                        <Instagram className="h-5 w-5" />
+                     </a>
                   </div>
                </div>
             </div>
