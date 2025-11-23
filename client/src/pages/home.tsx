@@ -8,7 +8,7 @@ import heroVideo from "@assets/generated_videos/luxury_fashion_product_showcase.
 import wardrobeImage from "@assets/generated_images/holographic_digital_wardrobe_scanning_interface.png";
 import outfitImage from "@assets/generated_images/ai_curated_outfit_display.png";
 import chatImage from "@assets/generated_images/minimalist_ai_chat_interface_visualization.png";
-import auraLogo from "../assets/aura-logo.png";
+import auraLogo from "@assets/aura-logo-full.png";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 
@@ -72,8 +72,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex justify-between h-24 items-center">
             <div className="flex items-center gap-3">
-              <img src={auraLogo} alt="Aura" className="h-12 w-12 object-contain" />
-              <span className="text-2xl font-bold tracking-[0.2em] gold-glitter font-serif">Aura</span>
+              <img src={auraLogo} alt="Aura by Anu" className="h-16 w-auto object-contain" />
             </div>
             <div className="hidden md:flex items-center gap-10">
               <a href="#features" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Features</a>
