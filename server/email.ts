@@ -57,7 +57,7 @@ export async function sendWaitlistConfirmation(name: string, email: string): Pro
             <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">Hi ${name},</p>
             
             <p style="font-size: 16px; line-height: 1.8; margin: 0 0 20px 0;">
-              Thank you for joining the waitlist for <strong>Aura By Anu</strong>.
+              Thank you for joining the waitlist for <strong style="color: #DAA520;">Aura</strong> <strong>By Anu</strong>.
             </p>
             
             <p style="font-size: 16px; line-height: 1.8; margin: 0 0 20px 0;">
@@ -66,7 +66,7 @@ export async function sendWaitlistConfirmation(name: string, email: string): Pro
             </p>
             
             <p style="font-size: 16px; line-height: 1.8; margin: 0 0 20px 0;">
-              I built Aura because every opportunity I unlocked in my life — getting into Google, growing on social media, being noticed by brands — all came from one thing: <strong>the way I showed up</strong>.
+              I built <strong style="color: #DAA520;">Aura</strong> because every opportunity I unlocked in my life — getting into Google, growing on social media, being noticed by brands — all came from one thing: <strong>the way I showed up</strong>.
               My presentation opened doors long before my résumé reached anyone's desk.
               And the simplest, most powerful part of that presentation?
               <strong>Wearing the right outfit.</strong>
@@ -81,12 +81,12 @@ export async function sendWaitlistConfirmation(name: string, email: string): Pro
             
             <p style="font-size: 16px; line-height: 1.8; margin: 0 0 20px 0;">
               I can't wait for you to experience what we're building.
-              <strong>Aura is coming very soon to your inbox.</strong>
+              <strong style="color: #DAA520;">Aura</strong> <strong>is coming very soon to your inbox.</strong>
             </p>
             
             <p style="font-size: 16px; line-height: 1.8; margin: 30px 0 0 0;">
               With love,<br>
-              <strong>Team Aura by Anu</strong>
+              <strong>Team <span style="color: #DAA520;">Aura</span> by Anu</strong>
             </p>
           </div>
           
