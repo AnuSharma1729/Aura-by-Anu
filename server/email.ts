@@ -49,7 +49,7 @@ export async function sendWaitlistConfirmation(name: string, email: string): Pro
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a;">
           <div style="text-align: center; margin-bottom: 40px;">
-            <h1 style="font-size: 48px; font-weight: bold; margin: 0; background: linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FFD700 50%, #DAA520 75%, #FFD700 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Aura</h1>
+            <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: #DAA520;">Aura</h1>
             <p style="font-size: 14px; color: #666; margin: 8px 0 0 0; letter-spacing: 2px;">BY ANU</p>
           </div>
           
@@ -92,7 +92,7 @@ export async function sendWaitlistConfirmation(name: string, email: string): Pro
           
           <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #e0e0e0;">
             <p style="font-size: 12px; color: #999; margin: 0;">
-              © 2025 Aura Intelligence Inc. All rights reserved.
+              © 2025 <span style="color: #DAA520;">Aura</span> Intelligence Inc. All rights reserved.
             </p>
           </div>
         </div>
