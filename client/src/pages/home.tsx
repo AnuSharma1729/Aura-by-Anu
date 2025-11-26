@@ -70,13 +70,12 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full z-50 top-0 transition-all duration-500 bg-black/50 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex justify-between h-24 items-center">
+          <div className="flex justify-between h-24 items-center relative">
             <div className="flex items-center gap-3">
               <img src={auraLogo} alt="Aura by Anu" className="h-16 w-auto object-contain" />
             </div>
-            <div className="hidden md:flex items-center gap-10">
+            <div className="hidden md:flex items-center justify-center gap-16 absolute left-1/2 -translate-x-1/2">
               <a href="#features" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Features</a>
-              <a href="#how-it-works" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Process</a>
               <a href="#waitlist" className="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-[0.15em]">Membership</a>
             </div>
             <div className="flex items-center gap-6">
