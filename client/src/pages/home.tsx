@@ -272,7 +272,7 @@ export default function Home() {
                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-gray-400">Connect</h4>
                   <div className="flex gap-4">
                      <a 
-                        href="https://instagram.com/aura_byanu" 
+                        href="https://www.instagram.com/aura_byanu.shop" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         data-testid="link-instagram"
