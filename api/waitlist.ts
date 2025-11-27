@@ -62,7 +62,11 @@ export default async function handler(
       });
 
       if (error.code === '23505') {
-        return res.status(409).json({ error: "Email already registered" });
+        return res.status(200).json({ 
+          success: true,
+          alreadyRegistered: true,
+          message: "Already registered, I know you're excited but you're already in"
+        });
       }
 
       return res.status(500).json({ 

@@ -44,6 +44,17 @@ export default function Home() {
         return;
       }
 
+      // Handle already registered case
+      if (data.alreadyRegistered) {
+        toast({
+          title: "Already Registered!",
+          description: data.message || "Already registered, I know you're excited but you're already in",
+        });
+        setName("");
+        setEmail("");
+        return;
+      }
+
       setSubmitted(true);
       toast({
         title: "Access Requested",
