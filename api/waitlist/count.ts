@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { storage } from '../../server/storage';
+import { storage } from '../lib/storage';
 
 // Enable CORS
 function enableCORS(res: VercelResponse) {

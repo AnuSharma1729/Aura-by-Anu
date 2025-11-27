@@ -1,27 +1,8 @@
 import 'dotenv/config';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-
-let storage: any;
-let insertWaitlistSchema: any;
-let sendWaitlistConfirmation: any;
-
-// Lazy load modules to catch initialization errors
-async function loadModules() {
-  if (!storage) {
-    try {
-      const storageModule = await import('../server/storage');
-      const schemaModule = await import('../shared/schema');
-      const emailModule = await import('../server/email');
-      storage = storageModule.storage;
-      insertWaitlistSchema = schemaModule.insertWaitlistSchema;
-      sendWaitlistConfirmation = emailModule.sendWaitlistConfirmation;
-    } catch (error: any) {
-      console.error('Failed to load modules:', error);
-      throw new Error(`Module loading failed: ${error.message}`);
-    }
-  }
-  return { storage, insertWaitlistSchema, sendWaitlistConfirmation };
-}
+import { storage } from './lib/storage';
+import { insertWaitlistSchema } from './lib/schema';
+import { sendWaitlistConfirmation } from './lib/email';
 
 export default async function handler(
   req: VercelRequest,
@@ -49,9 +30,6 @@ export default async function handler(
         });
       }
 
-      // Load modules
-      await loadModules();
-      
       const result = insertWaitlistSchema.safeParse(req.body);
       
       if (!result.success) {
