@@ -1,5 +1,5 @@
-import { db } from "./db";
-import { waitlist, type InsertWaitlist, type Waitlist } from "./schema";
+import { db } from "./db.js";
+import { waitlist, type InsertWaitlist, type Waitlist } from "./schema.js";
 
 export interface IStorage {
   addToWaitlist(email: InsertWaitlist): Promise<Waitlist>;

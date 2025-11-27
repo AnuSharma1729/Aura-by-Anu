@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { storage } from './lib/storage';
-import { insertWaitlistSchema } from './lib/schema';
-import { sendWaitlistConfirmation } from './lib/email';
+import { storage } from './lib/storage.js';
+import { insertWaitlistSchema } from './lib/schema.js';
+import { sendWaitlistConfirmation } from './lib/email.js';
 
 export default async function handler(
   req: VercelRequest,
