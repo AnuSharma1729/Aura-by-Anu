@@ -4,6 +4,7 @@ import auraLogo from "@assets/aura-logo-full.png";
 
 export default function Press() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Press & Media - Aura by Anu";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -50,7 +51,7 @@ export default function Press() {
               </p>
 
               <p className="text-lg md:text-xl">
-                <a href="mailto:press@aura-byanu.com" className="text-white hover:underline font-medium">press@aura-byanu.com</a>
+                <a href="mailto:contactaurabyanu@gmail.com" className="text-white hover:underline font-medium">contactaurabyanu@gmail.com</a>
               </p>
 
               <p className="text-lg md:text-xl pt-4 italic">

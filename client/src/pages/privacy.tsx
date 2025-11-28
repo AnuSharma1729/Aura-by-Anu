@@ -4,6 +4,7 @@ import auraLogo from "@assets/aura-logo-full.png";
 
 export default function Privacy() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Privacy Policy - Aura by Anu";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -114,7 +115,7 @@ export default function Privacy() {
               <div className="pt-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white font-serif tracking-wide">Contact Us</h2>
                 <p className="text-lg md:text-xl">
-                  For questions or requests, email: <a href="mailto:support@aura-byanu.com" className="text-white hover:underline">support@aura-byanu.com</a>
+                  For questions or requests, email: <a href="mailto:contactaurabyanu@gmail.com" className="text-white hover:underline">contactaurabyanu@gmail.com</a>
                 </p>
               </div>
             </div>

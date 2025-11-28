@@ -4,6 +4,7 @@ import auraLogo from "@assets/aura-logo-full.png";
 
 export default function About() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "About Us - Aura by Anu";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
