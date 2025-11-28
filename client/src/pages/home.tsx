@@ -274,9 +274,10 @@ export default function Home() {
                <div>
                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-gray-400">Company</h4>
                   <ul className="space-y-4 text-sm text-gray-300">
-                     <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                     <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                     <li><a href="#" className="hover:text-white transition-colors">Press</a></li>
+                     <li><Link href="/about" className="hover:text-white transition-colors cursor-pointer">About Us</Link></li>
+                     <li><Link href="/careers" className="hover:text-white transition-colors cursor-pointer">Careers</Link></li>
+                     <li><Link href="/press" className="hover:text-white transition-colors cursor-pointer">Press</Link></li>
+                     <li><Link href="/privacy" className="hover:text-white transition-colors cursor-pointer">Privacy</Link></li>
                   </ul>
                </div>
                <div>
@@ -300,7 +301,7 @@ export default function Home() {
                   <p className="text-[10px] opacity-60">Built by Anu Sharma</p>
                </div>
                <div className="flex gap-8 mt-4 md:mt-0">
-                  <a href="#" className="hover:text-gray-400 transition-colors">Privacy</a>
+                  <Link href="/privacy" className="hover:text-gray-400 transition-colors cursor-pointer">Privacy</Link>
                   <a href="#" className="hover:text-gray-400 transition-colors">Terms</a>
                </div>
             </div>
